@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom"],
+    "lib": [
+      "dom"
+    ],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
@@ -14,9 +16,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "./src"
   },
   "include": [
-    "src"
+    "src",
+    "babel.config.js",
+    "webpack.config.js"
   ]
 }

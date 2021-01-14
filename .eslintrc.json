@@ -21,7 +21,7 @@
     },
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json"]
   },
   "rules": {
     "import/no-unresolved": 0,
@@ -33,7 +33,7 @@
       ]
     }],
     "prettier/prettier": [
-      "error",
+      "warn",
       {
         "singleQuote": true,
         "trailingComma": "all",
@@ -52,6 +52,7 @@
     "import/prefer-default-export": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "camelcase": "off",
+    "react/require-default-props": "off",
     "@typescript-eslint/no-empty-function": "off",
     "import-helpers/order-imports": [
       "warn", {
@@ -63,11 +64,20 @@
     "import/extensions": ["warn", "never", 
       { "svg": "always", 
         "png": "always", 
-        "jpg": "always"
+        "jpg": "always",
+        "scss": "always"
       }
     ],
     "@typescript-eslint/no-use-before-define": "off",
     "no-useless-escape": "off",
     "no-return-assign": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

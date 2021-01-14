@@ -1,13 +1,17 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Routes } from 'routes';
+import { theme } from 'theme';
+
+import 'focus-visible/dist/focus-visible';
+import 'theme/normalize.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+      <Routes />
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
-reportWebVitals();
