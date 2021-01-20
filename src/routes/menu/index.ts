@@ -1,0 +1,58 @@
+import HomePage from 'pages/home';
+import TicketsPage from 'pages/tickets';
+import {
+  MdMessage,
+  MdHome,
+  MdAttachMoney,
+  MdPeople,
+  MdSettings,
+  MdHelp,
+  MdExitToApp,
+} from 'react-icons/md';
+
+export const menu = [
+  {
+    name: 'Início',
+    path: '/home',
+    private: true,
+    icon: MdHome,
+    component: HomePage,
+  },
+  {
+    name: 'Tickets',
+    path: '/tickets',
+    private: true,
+    icon: MdMessage,
+    component: TicketsPage,
+  },
+  {
+    name: 'Financeiro',
+    path: '/home22',
+    private: true,
+    icon: MdAttachMoney,
+  },
+  {
+    name: 'Clientes',
+    path: '/hom32',
+    private: true,
+    icon: MdPeople,
+  },
+  {
+    name: 'Ajustes',
+    path: '/settings',
+    private: true,
+    icon: MdSettings,
+  },
+  {
+    name: 'Ajuda',
+    path: '/help',
+    private: true,
+    icon: MdHelp,
+  },
+  {
+    name: 'Sair',
+    path: '/logout',
+    private: true,
+    icon: MdExitToApp,
+  },
+];

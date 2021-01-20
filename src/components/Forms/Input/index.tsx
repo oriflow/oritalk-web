@@ -48,7 +48,7 @@ export const InputComponent = ({
           {...rest}
         />
       </InputGroup>
-      {!!error && <Text>{error}</Text>}
+      {!!error && <Text color="red.300">{error}</Text>}
     </Box>
   );
 };
