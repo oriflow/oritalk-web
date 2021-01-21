@@ -1,3 +1,4 @@
+import FinancesPage from 'pages/finances';
 import HomePage from 'pages/home';
 import TicketsPage from 'pages/tickets';
 import {
@@ -27,9 +28,10 @@ export const menu = [
   },
   {
     name: 'Financeiro',
-    path: '/home22',
+    path: '/finances',
     private: true,
     icon: MdAttachMoney,
+    component: FinancesPage,
   },
   {
     name: 'Clientes',

@@ -3,9 +3,9 @@ import React from 'react';
 
 import './styles.css';
 
-type ChartType = {
+interface ChartType {
   progress: string;
-};
+}
 
 const Chart = ({ progress }: ChartType) => {
   return (

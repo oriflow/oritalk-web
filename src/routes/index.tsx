@@ -9,9 +9,7 @@ export const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <LoginPage />
-        </Route>
+        <Route path="/" exact component={LoginPage} />
 
         <MenuBar>
           {menu.map(route => (

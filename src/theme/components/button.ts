@@ -27,8 +27,8 @@ export const Button = {
   },
 
   defaultProps: {
+    colorScheme: 'primary',
     size: 'md',
     variant: 'solid',
-    colorScheme: 'primary',
   },
 };

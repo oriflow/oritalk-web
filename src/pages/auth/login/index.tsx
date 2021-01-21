@@ -78,7 +78,7 @@ const LoginPage: React.FC = () => {
                 Esqueceu a senha?
               </Button>
               <Stack alignItems="center" mt="40px">
-                <Button type="submit" w="250px">
+                <Button variant="solid" type="submit" w="250px">
                   Fazer login
                 </Button>
               </Stack>

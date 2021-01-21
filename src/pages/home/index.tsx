@@ -6,8 +6,6 @@ import {
   Stat,
   StatArrow,
   StatHelpText,
-  StatLabel,
-  StatNumber,
   Table,
   Tbody,
   Td,
@@ -17,7 +15,7 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import chart_svg from 'assets/svg/chart.svg';
-import Chart from 'components/Layout/Chart';
+import CardChart from 'components/Layout/CardChart';
 import React from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
 
@@ -37,19 +35,7 @@ const HomePage: React.FC = () => {
 
       <Stack direction="row" pt="10px" spacing="10px" flexWrap="wrap">
         {fake.map(item => (
-          <Box flex="1" key={item.title} bg="white" p="12px 15px">
-            <Stack direction="row" alignItems="center">
-              <Stat mr="10px">
-                <StatNumber fontWeight="bold">{item.title}</StatNumber>
-                <StatLabel fontSize="12px">{item.message}</StatLabel>
-                <StatHelpText mt="8px">
-                  <StatArrow type={item.type as 'increase'} />
-                  {item.chart} Outubro
-                </StatHelpText>
-              </Stat>
-              <Chart progress={item.progress} />
-            </Stack>
-          </Box>
+          <CardChart as="home" item={item} />
         ))}
       </Stack>
 

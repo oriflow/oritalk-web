@@ -1,6 +1,6 @@
-import { Avatar, Box, Button, Stack, Text } from '@chakra-ui/react';
-import user from 'assets/png/user.png';
+import { Box, Stack, Text } from '@chakra-ui/react';
 import Graphic from 'components/Layout/Graphic';
+import UserListComponent from 'components/Layout/UserList';
 import React from 'react';
 
 const TicketsPage: React.FC = () => {
@@ -24,98 +24,26 @@ const TicketsPage: React.FC = () => {
 
       <Stack direction="row" spacing="20px" pt="10px">
         <Stack direction="row" flex="1">
-          <Box flex="1" bg="white" p="15px 20px">
-            <Stack direction="row" justifyContent="space-between">
-              <Text fontSize="16px" fontWeight="bold">
-                Em andamento
-              </Text>
-              <Button variant="link">Ver todos {`>`}</Button>
-            </Stack>
-            <Box mt="10px">
-              {[0, 1, 2, 3, 4, 5].map(() => (
-                <Stack
-                  direction="row"
-                  fontSize="13px"
-                  borderTop="1px solid #eee"
-                  p="10px 0px"
-                  alignItems="center">
-                  <Avatar src={user} w="28px" h="28px" />
-                  <Text flex="1">Eduardo Souza</Text>
-                  <Text fontSize="12px">16/10/2020</Text>
-                </Stack>
-              ))}
-            </Box>
+          <Box flex="1">
+            <UserListComponent title="Em andamento" content={[0, 1, 2, 3, 4]} />
           </Box>
-
-          <Box flex="1" bg="white" p="15px 20px">
-            <Stack direction="row" justifyContent="space-between">
-              <Text fontSize="16px" fontWeight="bold">
-                Aberto recentemente
-              </Text>
-              <Button variant="link">Ver todos {`>`}</Button>
-            </Stack>
-            <Box mt="10px">
-              {[0, 1, 2, 3, 4, 5].map(() => (
-                <Stack
-                  direction="row"
-                  fontSize="13px"
-                  borderTop="1px solid #eee"
-                  p="10px 0px"
-                  alignItems="center">
-                  <Avatar src={user} w="28px" h="28px" />
-                  <Text flex="1">Eduardo Souza</Text>
-                  <Text fontSize="12px">16/10/2020</Text>
-                </Stack>
-              ))}
-            </Box>
+          <Box flex="1">
+            <UserListComponent
+              title="Aberto recentemente"
+              content={[0, 1, 2, 3, 4]}
+            />
           </Box>
         </Stack>
 
         <Stack direction="row" flex="1">
-          <Box flex="1" bg="white" p="15px 20px">
-            <Stack direction="row" justifyContent="space-between">
-              <Text fontSize="16px" fontWeight="bold">
-                Finalizados
-              </Text>
-              <Button variant="link">Ver todos {`>`}</Button>
-            </Stack>
-            <Box mt="10px">
-              {[0, 1, 2, 3, 4, 5].map(() => (
-                <Stack
-                  direction="row"
-                  fontSize="13px"
-                  borderTop="1px solid #eee"
-                  p="10px 0px"
-                  alignItems="center">
-                  <Avatar src={user} w="28px" h="28px" />
-                  <Text flex="1">Eduardo Souza</Text>
-                  <Text fontSize="12px">16/10/2020</Text>
-                </Stack>
-              ))}
-            </Box>
+          <Box flex="1">
+            <UserListComponent title="Finalizados" content={[0, 1, 2, 3, 4]} />
           </Box>
-
-          <Box flex="1" bg="white" p="15px 20px">
-            <Stack direction="row" justifyContent="space-between">
-              <Text fontSize="16px" fontWeight="bold">
-                Não solucionados
-              </Text>
-              <Button variant="link">Ver todos {`>`}</Button>
-            </Stack>
-            <Box mt="10px">
-              {[0, 1, 2, 3, 4, 5].map(() => (
-                <Stack
-                  direction="row"
-                  fontSize="13px"
-                  borderTop="1px solid #eee"
-                  p="10px 0px"
-                  alignItems="center">
-                  <Avatar src={user} w="28px" h="28px" />
-                  <Text flex="1">Eduardo Souza</Text>
-                  <Text fontSize="12px">16/10/2020</Text>
-                </Stack>
-              ))}
-            </Box>
+          <Box flex="1">
+            <UserListComponent
+              title="Não solucionados"
+              content={[0, 1, 2, 3, 4]}
+            />
           </Box>
         </Stack>
       </Stack>
