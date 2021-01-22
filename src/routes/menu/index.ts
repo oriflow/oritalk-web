@@ -1,3 +1,4 @@
+import ClientsPage from 'pages/clients';
 import FinancesPage from 'pages/finances';
 import HomePage from 'pages/home';
 import TicketsPage from 'pages/tickets';
@@ -35,9 +36,10 @@ export const menu = [
   },
   {
     name: 'Clientes',
-    path: '/hom32',
+    path: '/clients',
     private: true,
     icon: MdPeople,
+    component: ClientsPage,
   },
   {
     name: 'Ajustes',

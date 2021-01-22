@@ -12,14 +12,15 @@ declare type InputTypes = {
   name: string;
   placeholder?: string;
   icon?: JSX.Element;
+  [rest: string]: any;
 };
 
-export const InputComponent = ({
+export const InputComponent: React.FC<InputTypes> = ({
   name,
   placeholder,
   icon,
   ...rest
-}: InputTypes) => {
+}) => {
   const inputRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
 

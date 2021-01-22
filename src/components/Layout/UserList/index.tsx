@@ -1,6 +1,7 @@
 import { Avatar, Box, Button, Stack, Text } from '@chakra-ui/react';
 import user from 'assets/png/user.png';
 import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 interface UserListProperties {
   title?: string;
@@ -13,13 +14,25 @@ const UserListComponent = ({
   content,
   as,
 }: UserListProperties): JSX.Element => {
+  const { push } = useHistory();
+  const { pathname } = useLocation();
+
   return (
     <Box flex="1" bg="white" p="15px 20px">
       <Stack direction="row" justifyContent="space-between">
         <Text fontSize="16px" fontWeight={as === 'finance' ? 'normal' : 'bold'}>
           {title ?? 'Sem título'}
         </Text>
-        <Button variant="link">Ver todos {`>`}</Button>
+        <Button
+          variant="link"
+          onClick={() => {
+            push({
+              pathname: '/clients/',
+              state: { pathname, title },
+            });
+          }}>
+          Ver todos {`>`}
+        </Button>
       </Stack>
 
       <Box mt="20px">

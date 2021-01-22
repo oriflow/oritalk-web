@@ -12,7 +12,7 @@ export const Button = {
       textColor: 'primary.500',
       fontWeight: '500',
       padding: '0px 15px',
-      height: '38px',
+      height: '32px',
       _active: {
         textColor: 'white',
       },
