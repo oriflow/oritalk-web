@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Stack, Text } from '@chakra-ui/react';
 import user from 'assets/png/user.png';
+import { useRoute } from 'hooks/useRoute';
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
 
 interface UserListProperties {
   title?: string;
@@ -14,9 +14,7 @@ const UserListComponent = ({
   content,
   as,
 }: UserListProperties): JSX.Element => {
-  const { push } = useHistory();
-  const { pathname } = useLocation();
-
+  const { push } = useRoute();
   return (
     <Box flex="1" bg="white" p="15px 20px">
       <Stack direction="row" justifyContent="space-between">
@@ -26,10 +24,7 @@ const UserListComponent = ({
         <Button
           variant="link"
           onClick={() => {
-            push({
-              pathname: '/clients/',
-              state: { pathname, title },
-            });
+            push('/clients/', title ?? '');
           }}>
           Ver todos {`>`}
         </Button>

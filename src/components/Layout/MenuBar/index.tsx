@@ -9,8 +9,9 @@ import {
 } from '@chakra-ui/react';
 import logo from 'assets/png/logo_justfit.png';
 import logo_oritalk from 'assets/svg/logo.svg';
-import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useRoute } from 'hooks/useRoute';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { menu } from 'routes/menu';
 
 interface menuBar {
@@ -18,10 +19,30 @@ interface menuBar {
 }
 
 const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
-  const { push } = useHistory();
+  const { push } = useRoute();
   const { pathname, state } = useLocation();
   const location: any = !!state && state;
-  const active = menu?.find(a => a?.path === (location?.pathname || pathname));
+  const [active, setActive] = useState({ path: '', name: '' });
+
+  useEffect(() => {
+    if (state || pathname) {
+      menu.map(item => {
+        if (item?.path === (pathname || location?.pathname)) {
+          setActive(item);
+        }
+        if (item?.child) {
+          item?.child?.map(a => {
+            if (a.path === (pathname || location?.pathname)) {
+              setActive(a);
+              return false;
+            }
+            return false;
+          });
+        }
+        return true;
+      });
+    }
+  }, [location?.pathname, pathname, state]);
 
   return (
     <Stack h="100%" overflow="hidden">
@@ -37,7 +58,7 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
         </Box>
         <Stack flex="1" pl="40px" direction="row" alignItems="center">
           <Text fontSize="18px">
-            {location?.title || active?.name || 'Sem título'}
+            {location?.title || active.name || 'Sem título'}
           </Text>
           <Text fontSize="12px" p="0px 12px" color="grey">
             Última atualização: 01/11/2020 - 23:59

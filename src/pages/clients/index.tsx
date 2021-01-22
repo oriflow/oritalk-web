@@ -26,7 +26,6 @@ const ClientsPage: React.FC = (): JSX.Element => {
           </Stack>
         </Form>
       </Box>
-
       <TableClients />
     </Stack>
   );

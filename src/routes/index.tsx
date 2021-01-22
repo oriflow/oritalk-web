@@ -13,7 +13,13 @@ export const Routes = () => {
 
         <MenuBar>
           {menu.map(route => (
-            <Route path={route.path} component={route.component} exact />
+            <>
+              <Route path={route.path} component={route.component} exact />
+              {!!route.child &&
+                route.child.map(item => (
+                  <Route path={item.path} component={item.component} exact />
+                ))}
+            </>
           ))}
         </MenuBar>
       </Switch>

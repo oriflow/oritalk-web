@@ -14,11 +14,14 @@ import {
 } from '@chakra-ui/react';
 import user from 'assets/png/user.png';
 import dropDown from 'assets/svg/drop.svg';
+import { useRoute } from 'hooks/useRoute';
 import React from 'react';
 
 import { status } from './status';
 
 const TableClients: React.FC = () => {
+  const { push } = useRoute();
+
   const Rows = [
     { name: 'Nome' },
     { name: 'CPF' },
@@ -67,7 +70,13 @@ const TableClients: React.FC = () => {
                   </Box>
                 </Td>
                 <Td>
-                  <Button w="130px" fontSize="14px" variant="outline">
+                  <Button
+                    onClick={() => {
+                      push('/profile');
+                    }}
+                    w="130px"
+                    fontSize="14px"
+                    variant="outline">
                     Ver perfil
                   </Button>
                 </Td>

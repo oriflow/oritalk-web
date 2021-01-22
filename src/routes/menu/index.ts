@@ -2,6 +2,7 @@ import ClientsPage from 'pages/clients';
 import FinancesPage from 'pages/finances';
 import HomePage from 'pages/home';
 import TicketsPage from 'pages/tickets';
+import UserDataPage from 'pages/userdata';
 import {
   MdMessage,
   MdHome,
@@ -40,6 +41,14 @@ export const menu = [
     private: true,
     icon: MdPeople,
     component: ClientsPage,
+    child: [
+      {
+        name: 'Perfil',
+        component: UserDataPage,
+        path: '/profile',
+        private: true,
+      },
+    ],
   },
   {
     name: 'Ajustes',
