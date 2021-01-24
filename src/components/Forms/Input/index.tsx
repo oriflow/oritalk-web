@@ -40,11 +40,9 @@ export const InputComponent: React.FC<InputTypes> = ({
         )}
         <Input
           placeholder={placeholder ?? ''}
-          borderRadius="0"
-          background="background.700"
           isInvalid={!!error}
           ref={inputRef}
-          errorBorderColor="red.300"
+          errorBorderColor="feedback_liquid.primary"
           defaultValue={defaultValue}
           {...rest}
         />

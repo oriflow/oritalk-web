@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.1.4",
+    "@chakra-ui/theme": "^1.4.1",
+    "@chakra-ui/theme-tools": "^1.0.3",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -46,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@svgr/webpack": "^5.5.0",
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
@@ -63,7 +66,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
-    "prettier": "^2.2.1",
-    "webpack": "4.44.2"
+    "prettier": "^2.2.1"
   }
 }

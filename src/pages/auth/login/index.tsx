@@ -18,17 +18,17 @@ import { FiLock, FiUser } from 'react-icons/fi';
 
 const LoginPage: React.FC = () => {
   return (
-    <Stack minH="100%" justifyContent="center" bgColor="background.700">
+    <Stack minH="100%" justifyContent="center" bgColor="background.primary">
       <Center>
         <Stack spacing="0" direction="row" boxShadow="0 2px 3px 1px #ddd">
-          <Box w="400px" bgColor="white" padding="80px 50px 30px">
+          <Box w="488px" bgColor="white" padding="80px 50px 30px">
             <Box>
-              <Image w="190px" src={logo} />
+              <Image w="192px" src={logo} />
             </Box>
-            <Heading mt="30px" color="title" fontSize="30px" lineHeight="44px">
+            <Heading mt="30px" color="title" fontSize="36px" lineHeight="44px">
               Suporte prático e com eficiência
             </Heading>
-            <Text fontSize="16px" mt="20px" color="text">
+            <Text fontSize="20px" mt="20px" color="text">
               Uma plataforma que proporciona atendimentos descomplicados para
               clientes e time suporte
             </Text>
@@ -43,7 +43,7 @@ const LoginPage: React.FC = () => {
             </Stack>
           </Box>
 
-          <Box p="50px 100px 20px" w="550px" bgColor="background.100">
+          <Box p="40px 145px" w="664px" bgColor="background.dark">
             <Form onSubmit={() => {}}>
               <Stack alignItems="center" mb="30px">
                 <Box
@@ -78,12 +78,12 @@ const LoginPage: React.FC = () => {
                 Esqueceu a senha?
               </Button>
               <Stack alignItems="center" mt="40px">
-                <Button variant="solid" type="submit" w="250px">
+                <Button variant="solid" type="submit" w="232px">
                   Fazer login
                 </Button>
               </Stack>
 
-              <Stack direction="row" justifyContent="center" mt="40px">
+              <Stack direction="row" justifyContent="center" mt="60px">
                 <Text color="grey">Não tem acesso?</Text>
                 <Button variant="link">Solicite agora</Button>
               </Stack>

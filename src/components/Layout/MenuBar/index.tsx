@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   Icon,
+  Divider,
 } from '@chakra-ui/react';
 import logo from 'assets/png/logo_justfit.png';
 import logo_oritalk from 'assets/svg/logo.svg';
@@ -52,7 +53,7 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
         bg="white"
         boxShadow="0 2px 3px 1px #eee"
         p="10px"
-        h="50px">
+        h="56px">
         <Box w="160px" p="0px 20px" borderRight="1px solid #eee">
           <Image w="110px" src={logo_oritalk} />
         </Box>
@@ -69,41 +70,41 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
       <Stack mt="0px !important" h="100%" flexDirection="row">
         <Stack
           alignItems="center"
-          p="10px"
           borderRight="1px solid #ddd"
-          w="65px"
+          w="79px"
           h="100%"
-          bg="background.100">
+          bg="background.dark">
           <Stack
-            w="45px"
+            w="50px"
             borderBottom="1px solid #ddd"
-            pb="20px"
+            p="34px 0"
             alignItems="center">
-            <Avatar w="40px" h="40px" src={logo} />
+            <Avatar src={logo} />
           </Stack>
 
-          <Stack>
+          <Stack p="30px 0" flex="1">
             {menu.map(item => {
               const isActive = active?.path === item.path;
+              const IconSVG = item.icon;
               return (
-                <Button
-                  onClick={() => push(item.path)}
-                  variant="none"
-                  p="30px 0px">
-                  <Stack alignItems="center" justifyContent="center">
+                <>
+                  {item.name === 'Ajustes' && (
+                    <Divider orientation="horizontal" m="10px 0" p="10px 0" />
+                  )}
+                  <Button
+                    onClick={() => push(item.path)}
+                    variant="none"
+                    p="35px 0px"
+                    mb="30px">
                     <Icon
-                      as={item.icon}
-                      boxSize="24px"
-                      color={isActive ? 'primary.500' : 'grey'}
-                    />
-                    <Text
-                      color={isActive ? 'primary.500' : 'grey'}
-                      fontSize="10px"
-                      fontWeight="normal">
-                      {item.name}
-                    </Text>
-                  </Stack>
-                </Button>
+                      bg="bckground.primary"
+                      viewBox="0 0 80 80"
+                      boxSize="75px"
+                      color={isActive ? 'theme.primary' : 'text.secondary'}>
+                      <IconSVG />
+                    </Icon>
+                  </Button>
+                </>
               );
             })}
           </Stack>

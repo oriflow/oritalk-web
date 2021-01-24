@@ -24,21 +24,28 @@ interface CardProperties {
 
 const CardChart = ({ item, as }: CardProperties) => {
   return (
-    <Box flex="1" key={item.title} bg="white" p="12px 15px">
+    <Box w="424px" key={item.title} bg="white" p="24px">
       <Stack direction="row" alignItems="center">
         <Stat mr="10px">
           <StatNumber
+            color="text.primary"
             fontSize={as === 'home' ? '28px' : '18px'}
             fontWeight="bold">
             {item.title}
           </StatNumber>
-          <StatLabel fontSize="12px">{item.message}</StatLabel>
-          <StatHelpText mt={as === 'home' ? '0' : '20px'}>
+          <StatLabel color="text.primary" fontSize="12px">
+            {item.message}
+          </StatLabel>
+          <StatHelpText
+            color="text.secondary"
+            mt={as === 'home' ? '20px' : '20px'}>
             <StatArrow type={item.type as 'increase'} />
             {item.chart} Outubro
           </StatHelpText>
         </Stat>
-        <Chart progress={item.progress} />
+        <Box w="192px">
+          <Chart progress={item.progress} />
+        </Box>
       </Stack>
     </Box>
   );

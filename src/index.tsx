@@ -5,7 +5,6 @@ import { Routes } from 'routes';
 import { theme } from 'theme';
 
 import 'focus-visible/dist/focus-visible';
-import 'theme/normalize.css';
 
 ReactDOM.render(
   <React.StrictMode>

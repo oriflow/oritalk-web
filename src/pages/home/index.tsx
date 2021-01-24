@@ -24,7 +24,7 @@ import { fake } from './fake';
 const HomePage: React.FC = () => {
   return (
     <Stack flex="1" p="20px">
-      <Stack direction="row">
+      <Stack direction="row" p="10px 0">
         <Button rightIcon={<MdArrowDropDown />} variant="outline">
           Relatorios da semana
         </Button>
@@ -33,18 +33,14 @@ const HomePage: React.FC = () => {
         </Button>
       </Stack>
 
-      <Stack direction="row" pt="10px" spacing="10px" flexWrap="wrap">
+      <Stack direction="row" pt="10px" spacing="32px">
         {fake.map(item => (
           <CardChart as="home" item={item} />
         ))}
       </Stack>
 
-      <Stack
-        direction="row"
-        pt="10px"
-        justifyContent="space-around"
-        spacing="10px">
-        <Box flex="1" bg="white" p="20px">
+      <Stack direction="row" mt="32px !important" spacing="32px">
+        <Box bg="white" p="20px" w="880px">
           <Box pb="10px">
             <Text>Atendimentos</Text>
           </Box>
@@ -74,7 +70,8 @@ const HomePage: React.FC = () => {
             </Box>
           </Stack>
         </Box>
-        <Box flex="1" bg="white" p="20px">
+
+        <Box w="880px" bg="white" p="20px">
           <Text>Movimentações contratuais em unidades</Text>
           <Stack mt="30px">
             <Table>
@@ -83,7 +80,9 @@ const HomePage: React.FC = () => {
                   <Th textTransform="none">Unidade</Th>
                   <Th textTransform="none">Qtde contratos</Th>
                   <Th textTransform="none">Total arrecado</Th>
-                  <Th textTransform="none">Crescimento</Th>
+                  <Th textTransform="none" isNumeric>
+                    Crescimento
+                  </Th>
                 </Tr>
               </Thead>
               <Tbody fontSize="12px">

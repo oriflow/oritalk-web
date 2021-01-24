@@ -12,14 +12,14 @@
 
 .title {
   transform:translate(40%, 150%);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color:#000;
 }
 
 .chart-skills {
   position: relative;
-  width: 140px;
-  height: 70px;
+  width: 192px;
+  height: 96px;
   overflow: hidden;
 }
 
@@ -32,7 +32,7 @@
   content: '';
   width: inherit;
   height: inherit;
-  border: 20px solid rgba(211, 211, 211, .3);
+  border: 30px solid rgba(211, 211, 211, .3);
   border-bottom: none;
   border-top-left-radius: 175px;
   border-top-right-radius: 175px;
@@ -43,7 +43,7 @@
   left: 0;
   width: inherit;
   height: inherit;
-  border: 20px solid;
+  border: 30px solid;
   border-top: none;
   border-bottom-left-radius: 175px;
   border-bottom-right-radius: 175px;

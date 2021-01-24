@@ -813,7 +813,7 @@
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/plugin-syntax-jsx" "^7.12.1"
 
-"@babel/plugin-transform-react-jsx@^7.12.10":
+"@babel/plugin-transform-react-jsx@^7.12.10", "@babel/plugin-transform-react-jsx@^7.12.12":
   version "7.12.12"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.12.12.tgz#b0da51ffe5f34b9a900e9f1f5fb814f9e512d25e"
   integrity sha512-JDWGuzGNWscYcq8oJVCtSE61a5+XAOos+V0HrxnDieUus4UMnBEosDnY1VJqU5iZ4pA04QY7l0+JvHL1hZEfsw==
@@ -1692,7 +1692,7 @@
     "@chakra-ui/form-control" "1.1.1"
     "@chakra-ui/utils" "1.1.0"
 
-"@chakra-ui/theme-tools@1.0.3":
+"@chakra-ui/theme-tools@1.0.3", "@chakra-ui/theme-tools@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme-tools/-/theme-tools-1.0.3.tgz#a741566e48f6526afa653c0aec578b4bf477efa6"
   integrity sha512-ajI/vJkaoPykNXYqlw9xA0eHN1dI4Tnezd2F0a6/WjAXVjZNV/0IUnh437o3yHqP0WSwp4uMfXseZUaNmIj75A==
@@ -1701,7 +1701,7 @@
     "@types/tinycolor2" "1.4.2"
     tinycolor2 "1.4.2"
 
-"@chakra-ui/theme@1.4.1":
+"@chakra-ui/theme@1.4.1", "@chakra-ui/theme@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-1.4.1.tgz#23588f136990665dd1343dd626f0c70853881555"
   integrity sha512-BVeJDNaz6Eb2Dfvle5xpHc6Wx3bjKkNdvPLiiO8N6PV6G/brysiLZmMTdBAC/wBdSNT/p+ED7WyIEm3TakonkQ==
