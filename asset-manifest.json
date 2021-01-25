@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/oritalk-web/static/css/main.25b59e4c.chunk.css",
+    "main.js": "/oritalk-web/static/js/main.fc83e44c.chunk.js",
+    "main.js.map": "/oritalk-web/static/js/main.fc83e44c.chunk.js.map",
+    "runtime-main.js": "/oritalk-web/static/js/runtime-main.e5c2bda1.js",
+    "runtime-main.js.map": "/oritalk-web/static/js/runtime-main.e5c2bda1.js.map",
+    "static/js/2.d46d4e58.chunk.js": "/oritalk-web/static/js/2.d46d4e58.chunk.js",
+    "static/js/2.d46d4e58.chunk.js.map": "/oritalk-web/static/js/2.d46d4e58.chunk.js.map",
+    "index.html": "/oritalk-web/index.html",
+    "static/css/main.25b59e4c.chunk.css.map": "/oritalk-web/static/css/main.25b59e4c.chunk.css.map",
+    "static/js/2.d46d4e58.chunk.js.LICENSE.txt": "/oritalk-web/static/js/2.d46d4e58.chunk.js.LICENSE.txt",
+    "static/media/ajuda.7ba69cdf.svg": "/oritalk-web/static/media/ajuda.7ba69cdf.svg",
+    "static/media/ajustes.1a7054d6.svg": "/oritalk-web/static/media/ajustes.1a7054d6.svg",
+    "static/media/chart.3d4dc34b.svg": "/oritalk-web/static/media/chart.3d4dc34b.svg",
+    "static/media/clientes.55e7e788.svg": "/oritalk-web/static/media/clientes.55e7e788.svg",
+    "static/media/drop.21b106b9.svg": "/oritalk-web/static/media/drop.21b106b9.svg",
+    "static/media/financeiro.1934576f.svg": "/oritalk-web/static/media/financeiro.1934576f.svg",
+    "static/media/home.7ab829b1.svg": "/oritalk-web/static/media/home.7ab829b1.svg",
+    "static/media/logo.d6f9e708.svg": "/oritalk-web/static/media/logo.d6f9e708.svg",
+    "static/media/sair.704c4b68.svg": "/oritalk-web/static/media/sair.704c4b68.svg",
+    "static/media/tickets.1ee7e78d.svg": "/oritalk-web/static/media/tickets.1ee7e78d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5c2bda1.js",
+    "static/js/2.d46d4e58.chunk.js",
+    "static/css/main.25b59e4c.chunk.css",
+    "static/js/main.fc83e44c.chunk.js"
+  ]
+}
