@@ -13,14 +13,15 @@ export const Input = {
     flushed: {
       field: {
         border: 'none',
+        borderBottomWidth: 2,
         boxShadow: 'none',
         _focus: {
           boxShadow: 'none',
           borderColor: 'theme.primary',
-          borderWidth: 2,
         },
-        _hover: {
-          borderColor: 'border.input',
+        _active: {
+          boxShadow: 'none',
+          borderColor: 'theme.primary',
         },
       },
       addon: {

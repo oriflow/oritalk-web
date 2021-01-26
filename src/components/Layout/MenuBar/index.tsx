@@ -53,11 +53,12 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
         bg="white"
         boxShadow="0 2px 3px 1px #eee"
         p="10px"
-        h="56px">
-        <Box w="160px" p="0px 20px" borderRight="1px solid #eee">
-          <Image w="110px" src={logo_oritalk} />
+        h={['50px', '56px']}>
+        <Box p="0px 20px">
+          <Image w={['90px', '110px']} src={logo_oritalk} />
         </Box>
-        <Stack flex="1" pl="40px" direction="row" alignItems="center">
+        <Divider orientation="vertical" />
+        <Stack flex="1" pl="20px" direction="row" alignItems="center">
           <Text fontSize="18px">
             {location?.title || active.name || 'Sem título'}
           </Text>
@@ -71,35 +72,35 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
         <Stack
           alignItems="center"
           borderRight="1px solid #ddd"
-          w="79px"
+          w={['55px', '79px']}
           h="100%"
           bg="background.dark">
-          <Stack
-            w="50px"
-            borderBottom="1px solid #ddd"
-            p="34px 0"
-            alignItems="center">
-            <Avatar src={logo} />
+          <Stack w={['20px', '50px']} p={[5, '34px 0']} alignItems="center">
+            <Avatar boxSize={['40px', '50px']} src={logo} />
           </Stack>
 
-          <Stack p="30px 0" flex="1">
+          <Stack p={[2, '30px 0']} flex="1">
             {menu.map(item => {
               const isActive = active?.path === item.path;
               const IconSVG = item.icon;
               return (
                 <>
                   {item.name === 'Ajustes' && (
-                    <Divider orientation="horizontal" m="10px 0" p="10px 0" />
+                    <Divider
+                      orientation="horizontal"
+                      m={[1, '10px 0']}
+                      p={[0, '10px 0']}
+                    />
                   )}
                   <Button
                     onClick={() => push(item.path)}
                     variant="none"
-                    p="35px 0px"
-                    mb="30px">
+                    p={[0, '35px 0px']}
+                    mb={['15px', '30px']}>
                     <Icon
                       bg="bckground.primary"
                       viewBox="0 0 80 80"
-                      boxSize="75px"
+                      boxSize={['54px', '75px']}
                       color={isActive ? 'theme.primary' : 'text.secondary'}>
                       <IconSVG />
                     </Icon>

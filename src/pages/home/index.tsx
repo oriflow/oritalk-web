@@ -33,14 +33,14 @@ const HomePage: React.FC = () => {
         </Button>
       </Stack>
 
-      <Stack direction="row" pt="10px" spacing="32px">
+      <Stack direction="row" pt="10px" spacing={[3, '32px']}>
         {fake.map(item => (
           <CardChart as="home" item={item} />
         ))}
       </Stack>
 
-      <Stack direction="row" mt="32px !important" spacing="32px">
-        <Box bg="white" p="20px" w="880px">
+      <Stack direction="row" mt={[3, '32px !important']} spacing={[3, '32px']}>
+        <Box bg="white" p="20px" w={['full', '880px']}>
           <Box pb="10px">
             <Text>Atendimentos</Text>
           </Box>
@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
           </Stack>
         </Box>
 
-        <Box w="880px" bg="white" p="20px">
+        <Box w={['full', '880px']} bg="white" p="20px">
           <Text>Movimentações contratuais em unidades</Text>
           <Stack mt="30px">
             <Table>
