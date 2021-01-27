@@ -38,7 +38,7 @@ const TableClients: React.FC = () => {
         <Thead color="grey" borderBottom="1px solid #2b2b2b">
           <Tr>
             {Rows.map(item => (
-              <Th fontWeight="500" textTransform="initial">
+              <Th key={item.name} fontWeight="500" textTransform="initial">
                 {!!item.name && (
                   <Stack direction="row" cursor="pointer">
                     <Text>{item.name}</Text>
@@ -53,7 +53,7 @@ const TableClients: React.FC = () => {
         <Tbody>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
             <>
-              <Tr bg="white" fontSize="14px" p="0">
+              <Tr key={item} bg="white" fontSize="14px" p="0">
                 <Td>
                   <Stack direction="row" alignItems="center">
                     <Avatar src={user} w="30px" h="30px" />
@@ -72,7 +72,7 @@ const TableClients: React.FC = () => {
                 <Td>
                   <Button
                     onClick={() => {
-                      push('/profile');
+                      push('/clients/1');
                     }}
                     w="130px"
                     fontSize="14px"

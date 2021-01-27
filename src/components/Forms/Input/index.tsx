@@ -8,12 +8,12 @@ import {
 import { useField } from '@unform/core';
 import React, { useEffect, useRef } from 'react';
 
-declare type InputTypes = {
+interface InputTypes {
   name: string;
   placeholder?: string;
   icon?: JSX.Element;
   [rest: string]: any;
-};
+}
 
 export const InputComponent: React.FC<InputTypes> = ({
   name,

@@ -4,6 +4,7 @@ import { createBreakpoints } from '@chakra-ui/theme-tools';
 import { colors } from './colors';
 import { Button } from './components/button';
 import { Input } from './components/input';
+import { Tag } from './components/tag';
 import { fonts } from './fonts';
 import { styles } from './global';
 
@@ -21,6 +22,7 @@ export const theme = extendTheme({
   components: {
     Button,
     Input,
+    Tag,
   },
   breakpoints,
 });

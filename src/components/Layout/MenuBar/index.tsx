@@ -7,12 +7,17 @@ import {
   Image,
   Icon,
   Divider,
+  Input,
+  InputGroup,
+  InputLeftElement,
 } from '@chakra-ui/react';
 import logo from 'assets/png/logo_justfit.png';
 import logo_oritalk from 'assets/svg/logo.svg';
 import { useRoute } from 'hooks/useRoute';
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+import { FiSearch } from 'react-icons/fi';
+import { useLocation, useRouteMatch } from 'react-router-dom';
+import { clients_routes } from 'routes/client.routes';
 import { menu } from 'routes/menu';
 
 interface menuBar {
@@ -21,29 +26,17 @@ interface menuBar {
 
 const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
   const { push } = useRoute();
-  const { pathname, state } = useLocation();
-  const location: any = !!state && state;
-  const [active, setActive] = useState({ path: '', name: '' });
 
-  useEffect(() => {
-    if (state || pathname) {
-      menu.map(item => {
-        if (item?.path === (pathname || location?.pathname)) {
-          setActive(item);
-        }
-        if (item?.child) {
-          item?.child?.map(a => {
-            if (a.path === (pathname || location?.pathname)) {
-              setActive(a);
-              return false;
-            }
-            return false;
-          });
-        }
-        return true;
-      });
-    }
-  }, [location?.pathname, pathname, state]);
+  const {
+    pathname,
+    state,
+  }: {
+    pathname: string;
+    state: { title: string };
+  } = useLocation();
+
+  const routes = [...menu, ...clients_routes];
+  const active = routes?.find(a => useRouteMatch(a?.path)?.url === pathname);
 
   return (
     <Stack h="100%" overflow="hidden">
@@ -60,11 +53,22 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
         <Divider orientation="vertical" />
         <Stack flex="1" pl="20px" direction="row" alignItems="center">
           <Text fontSize="18px">
-            {location?.title || active.name || 'Sem título'}
+            {active?.name || state?.title || 'Página não encontrada'}
           </Text>
           <Text fontSize="12px" p="0px 12px" color="grey">
             Última atualização: 01/11/2020 - 23:59
           </Text>
+        </Stack>
+        <Stack direction="row" p="5px 0px">
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">
+              <Icon color="text.secondary" as={FiSearch} />
+            </InputLeftElement>
+            <Input
+              w="400px"
+              placeholder="Busque por CPF, nome, ticket ou status"
+            />
+          </InputGroup>
         </Stack>
       </Stack>
 
@@ -84,7 +88,7 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
               const isActive = active?.path === item.path;
               const IconSVG = item.icon;
               return (
-                <>
+                <Box key={item.name}>
                   {item.name === 'Ajustes' && (
                     <Divider
                       orientation="horizontal"
@@ -105,7 +109,7 @@ const MenuBar: React.FC<menuBar> = ({ children }): JSX.Element => {
                       <IconSVG />
                     </Icon>
                   </Button>
-                </>
+                </Box>
               );
             })}
           </Stack>

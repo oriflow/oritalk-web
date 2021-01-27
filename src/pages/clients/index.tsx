@@ -15,7 +15,6 @@ const ClientsPage: React.FC = (): JSX.Element => {
             <InputComponent
               w="350px"
               variant="flushed"
-              borderBottom="1px solid #ddd"
               icon={<FiSearch />}
               placeholder="Pesquise por CPF ou nome do cliente"
               name="search"

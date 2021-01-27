@@ -7,8 +7,8 @@ const FinancesPage: React.FC = () => {
   return (
     <Stack p="20px">
       <Stack direction="row" spacing="20px">
-        {[1, 2, 3, 4].map(() => (
-          <Box bg="white" flex="1">
+        {[1, 2, 3, 4].map(item => (
+          <Box bg="white" flex="1" key={item}>
             <CardChart
               as="finance"
               item={{

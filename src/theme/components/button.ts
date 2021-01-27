@@ -11,7 +11,7 @@ export const Button = {
       borderRadius: 3,
       textColor: 'theme.primary',
       fontSize: 16,
-      padding: '0px 6px',
+      padding: '0px 10px',
       _hover: {
         bg: 'transparent',
       },
@@ -30,6 +30,7 @@ export const Button = {
       bg: 'theme.primary',
       color: 'white',
       fontSize: 16,
+      p: '0px 10px',
       _hover: {
         bg: 'theme.secondary',
       },

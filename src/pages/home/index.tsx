@@ -50,8 +50,8 @@ const HomePage: React.FC = () => {
             </Box>
 
             <Box flex="1" p="10px">
-              {[0, 1, 2, 3].map(() => (
-                <Box mb="12px" w="full">
+              {[0, 1, 2, 3].map(item => (
+                <Box mb="12px" w="full" key={item}>
                   <Text fontWeight="bold">Finalizados</Text>
                   <Stack
                     direction="row"
@@ -86,8 +86,8 @@ const HomePage: React.FC = () => {
                 </Tr>
               </Thead>
               <Tbody fontSize="12px">
-                {[0, 1, 2].map(() => (
-                  <Tr>
+                {[0, 1, 2].map(item => (
+                  <Tr key={item}>
                     <Td>Morumbi / SP</Td>
                     <Td>107 un</Td>
                     <Td>R$15.658,22</Td>

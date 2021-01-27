@@ -18,7 +18,7 @@ export const colors = {
   // BACKGROUND
   background: {
     primary: '#f7f7f7',
-    secondary: '#2b2b2b',
+    secondary: '#2B2B2B',
     dark: '#f1f1f1',
     hover: '#dedede',
     intermediate: '#5e5e5e',

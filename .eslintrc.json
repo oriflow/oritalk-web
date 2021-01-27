@@ -54,6 +54,7 @@
     "camelcase": "off",
     "react/require-default-props": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "react-hooks/rules-of-hooks": "off",
     "import-helpers/order-imports": [
       "warn", {
         "newlinesBetween": "always",
