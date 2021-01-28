@@ -24,7 +24,7 @@ const UserListComponent = ({
         <Button
           variant="link"
           onClick={() => {
-            push('/clients/', title ?? '');
+            push('/tickets/1', title ?? '');
           }}>
           Ver todos {`>`}
         </Button>

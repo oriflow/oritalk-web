@@ -40,7 +40,7 @@ export const colors = {
 
   // FEEDBACKS
   feedback_solid: {
-    primary: '#00BA00',
+    primary: '#008A00',
     background: '#99D099',
     severe: '#005F00',
   },

@@ -18,7 +18,7 @@ const UserDataPage: React.FC = () => {
   }[active || 'profile'];
 
   return (
-    <Stack flex="1" bg="background.100">
+    <Stack flex="1">
       <TopMenu active={active} onChange={a => setActive(a)} />
 
       <Stack p="20px">
