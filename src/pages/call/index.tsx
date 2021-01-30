@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import TopMenu from './components/topmenu';
 import ChatPage from './pages/chat';
+import CallContracts from './pages/contracts';
 
 type Active = 'chat' | 'contracts';
 
@@ -12,13 +13,13 @@ const CallPage: React.FC = () => {
 
   const Pages = {
     chat: ChatPage,
-    contracts: Box,
+    contracts: CallContracts,
   }[active || 'chat'];
 
   return (
     <Stack flex="1" overflow="hidden">
       <Stack direction="row" flex="1" h="full" spacing="0">
-        <Stack overflow="auto" w="400px" p="20px">
+        <Stack overflow="auto" minW={['300px', '400px']} p="20px">
           <Box mb="10px">
             <Text fontSize="18px" color="text.primary">
               Atendimentos em andamento
@@ -39,11 +40,11 @@ const CallPage: React.FC = () => {
                 _hover={{
                   bg: 'background.hover',
                 }}>
-                <Avatar src={user} w="32px" h="32px" />
-                <Text flex="1" fontSize="14px">
+                <Avatar src={user} w={['28px', '32px']} h={['28px', '32px']} />
+                <Text flex="1" fontSize={['12px', '14px']}>
                   Eduardo Souza
                 </Text>
-                <Text fontSize="14px">#92830799</Text>
+                <Text fontSize={['12px', '14px']}>#92830799</Text>
               </Stack>
             ))}
           </Stack>

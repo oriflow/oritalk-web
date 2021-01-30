@@ -34,6 +34,7 @@ declare module 'react-table' {
 
   export interface Column<D, A extends keyof D = never>
     extends HeaderColumn<D, A> {
+    more: any;
     id: string | number;
     isNumeric: boolean;
   }
@@ -49,6 +50,7 @@ declare module 'react-table' {
     sortedDesc: boolean;
     sortedIndex: number;
     isNumeric: boolean;
+    more: Array[];
   }
 
   export type HeaderGroup<D, A extends keyof D = never> = {
