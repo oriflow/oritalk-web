@@ -1,19 +1,23 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-const RouteContext = createContext({
-  push: (_path: string, _title?: any, _?: any): void => {},
+interface RoutePropsContext {
+  push: (path: string, title?: string) => Promise<void>;
+  initial_path: string;
+  title: string;
+}
+
+interface RouteProps {
+  children: React.ReactNode;
+}
+
+const RouteContext = createContext<RoutePropsContext>({
+  push: async () => {},
   initial_path: '',
   title: '',
 });
 
-export const RouteProviderHook = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const RouteProviderHook: React.FC<RouteProps> = ({ children }) => {
   const history = useHistory();
   const {
     pathname,
@@ -25,8 +29,10 @@ export const RouteProviderHook = ({
   const [title, setTitle] = useState('');
 
   useEffect(() => {
-    setInitial(pathname);
-  }, []);
+    if (!initial_path) {
+      setInitial(pathname);
+    }
+  }, [pathname, initial_path]);
 
   const push = async (path = '/', title1 = '', params = null) => {
     setTitle(title1);
@@ -44,7 +50,7 @@ export const RouteProviderHook = ({
 };
 
 export function useRoute() {
-  const context = useContext(RouteContext);
+  const context = useContext<RoutePropsContext>(RouteContext);
   if (!context) {
     throw new Error('The context The Perfil must be within a valid provider');
   }

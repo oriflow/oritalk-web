@@ -19,6 +19,7 @@ export const InputComponent: React.FC<InputTypes> = ({
   name,
   placeholder,
   icon,
+  type,
   ...rest
 }) => {
   const inputRef = useRef(null);
@@ -44,6 +45,7 @@ export const InputComponent: React.FC<InputTypes> = ({
           ref={inputRef}
           errorBorderColor="feedback_liquid.primary"
           defaultValue={defaultValue}
+          type={type ?? 'text'}
           {...rest}
         />
       </InputGroup>

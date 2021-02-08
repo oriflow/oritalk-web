@@ -13,10 +13,13 @@ import logo_justfit from 'assets/png/logo_justfit.png';
 import logo from 'assets/png/logo.png';
 import Union from 'assets/png/Union.png';
 import { InputComponent } from 'components/Forms/Input';
+import { useAuth } from 'hooks/auth';
 import React from 'react';
 import { FiLock, FiUser } from 'react-icons/fi';
 
 const LoginPage: React.FC = () => {
+  const { newSession, loading } = useAuth();
+
   return (
     <Stack minH="100%" justifyContent="center" bgColor="background.primary">
       <Center>
@@ -44,7 +47,7 @@ const LoginPage: React.FC = () => {
           </Box>
 
           <Box p="40px 145px" w="664px" bgColor="background.dark">
-            <Form onSubmit={() => {}}>
+            <Form onSubmit={newSession}>
               <Stack alignItems="center" mb="30px">
                 <Box
                   w="128px"
@@ -60,6 +63,7 @@ const LoginPage: React.FC = () => {
                   icon={<FiUser />}
                   placeholder="Email"
                   name="email"
+                  type="email"
                 />
               </Box>
               <Box mb="20px">
@@ -67,6 +71,7 @@ const LoginPage: React.FC = () => {
                   icon={<FiLock />}
                   placeholder="Senha"
                   name="password"
+                  type="password"
                 />
               </Box>
 
@@ -78,7 +83,13 @@ const LoginPage: React.FC = () => {
                 Esqueceu a senha?
               </Button>
               <Stack alignItems="center" mt="40px">
-                <Button variant="solid" type="submit" w="232px">
+                <Button
+                  isLoading={loading}
+                  loadingText="Entrando..."
+                  disabled={loading}
+                  variant="solid"
+                  type="submit"
+                  w="232px">
                   Fazer login
                 </Button>
               </Stack>

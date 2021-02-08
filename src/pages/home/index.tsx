@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Image,
   Stack,
   Stat,
@@ -16,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import chart_svg from 'assets/svg/chart.svg';
 import CardChart from 'components/Layout/CardChart';
+import DropDown from 'components/Layout/DropDown';
 import React from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
 
@@ -25,12 +25,19 @@ const HomePage: React.FC = () => {
   return (
     <Stack flex="1" p="20px">
       <Stack direction="row" p="10px 0">
-        <Button rightIcon={<MdArrowDropDown />} variant="outline">
+        <DropDown
+          options={[{ name: 'há 7 dias' }, { name: 'há 14 dias' }]}
+          rightIcon={<MdArrowDropDown />}
+          variant="outline">
           Relatorios da semana
-        </Button>
-        <Button rightIcon={<MdArrowDropDown />} variant="outline">
+        </DropDown>
+
+        <DropDown
+          options={[{ name: 'há 7 dias' }, { name: 'há 14 dias' }]}
+          rightIcon={<MdArrowDropDown />}
+          variant="outline">
           Todas as unidades
-        </Button>
+        </DropDown>
       </Stack>
 
       <Stack direction="row" pt="10px" spacing={[3, '32px']}>

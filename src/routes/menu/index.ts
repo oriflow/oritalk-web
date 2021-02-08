@@ -14,48 +14,41 @@ import TicketsPage from 'pages/tickets';
 export const menu = [
   {
     name: 'Início',
-    path: '/home',
-    private: true,
+    path: '/',
     icon: home,
     component: HomePage,
   },
   {
     name: 'Tickets',
     path: '/tickets',
-    private: true,
     icon: tickets,
     component: TicketsPage,
   },
   {
     name: 'Financeiro',
     path: '/finances',
-    private: true,
     icon: financeiro,
     component: FinancesPage,
   },
   {
     name: 'Clientes',
     path: '/clients',
-    private: true,
     icon: clientes,
     component: ClientsPage,
   },
   {
     name: 'Ajustes',
     path: '/settings',
-    private: true,
     icon: ajustes,
   },
   {
     name: 'Ajuda',
     path: '/help',
-    private: true,
     icon: ajuda,
   },
   {
     name: 'Sair',
     path: '/logout',
-    private: true,
     icon: sair,
   },
 ];

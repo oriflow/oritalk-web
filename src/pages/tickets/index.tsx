@@ -1,9 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Stack, Text } from '@chakra-ui/react';
 import Graphic from 'components/Layout/Graphic';
 import UserListComponent from 'components/Layout/UserList';
-import React from 'react';
+import { useTickets } from 'hooks/tickets';
+import React, { useEffect, useState } from 'react';
 
 const TicketsPage: React.FC = () => {
+  const { getTicketsByStatus, ticketsByStatus } = useTickets();
+
+  const [params] = useState({
+    skip: 0,
+    take: 10,
+    id_site: '',
+    status: true,
+    subject: true,
+    customer: true,
+  });
+
+  useEffect(() => {
+    getTicketsByStatus(params);
+  }, [params]);
+
+
   return (
     <Stack flex="1" p="20px">
       <Stack direction="row" spacing="20px">
