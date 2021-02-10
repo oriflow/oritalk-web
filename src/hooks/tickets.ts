@@ -20,26 +20,7 @@ export const useTickets = () => {
     }
   };
 
-  const [ticketsByStatus, setTicketsByStatus] = useState([]);
   const getTicketsByStatus = async (params: any) => {
-    try {
-      const res = await prepareRequest(api.get, '/status/list');
-      if (res.status !== 200) throw res;
-      let Data = [] as any;
-      res.data.map(async (item: any) => {
-        const data = await getTicketsWithStatus({
-          ...params,
-          ids_status: item.id,
-        });
-        Data.push(data);
-      });
-      setTicketsByStatus(Data);
-    } catch (error) {
-      //
-    }
-  };
-
-  const getTicketsWithStatus = async (params: any) => {
     try {
       const res = await prepareRequest(api.get, '/ticket/list', params);
       if (res.status !== 200) throw res;
@@ -63,7 +44,6 @@ export const useTickets = () => {
     getTickets,
     getTicket,
     getTicketsByStatus,
-    ticketsByStatus,
     tickets,
     ticket,
   };

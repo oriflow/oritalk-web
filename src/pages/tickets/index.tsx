@@ -6,21 +6,48 @@ import { useTickets } from 'hooks/tickets';
 import React, { useEffect, useState } from 'react';
 
 const TicketsPage: React.FC = () => {
-  const { getTicketsByStatus, ticketsByStatus } = useTickets();
+  const { getTicketsByStatus } = useTickets();
+  const [emAndamento, setEmAndamento] = useState([]);
+  const [recente, setRecente] = useState([]);
+  const [finalizados, setFinalizados] = useState([]);
+  const [nãoSolucionados, setNãoSolucionados] = useState([]);
 
   const [params] = useState({
     skip: 0,
-    take: 10,
-    id_site: '',
+    take: 5,
+    id_site: 1,
     status: true,
     subject: true,
     customer: true,
+    ids_status: 1,
   });
 
   useEffect(() => {
-    getTicketsByStatus(params);
+    getAndamento();
+    getRecente();
+    getFinalizados();
+    getNãoSolucionados();
   }, [params]);
 
+  const getAndamento = async () => {
+    const data = await getTicketsByStatus({ ...params, ids_status: 2 });
+    if (data) setEmAndamento(data);
+  };
+
+  const getRecente = async () => {
+    const data = await getTicketsByStatus({ ...params, ids_status: 1 });
+    if (data) setRecente(data);
+  };
+
+  const getFinalizados = async () => {
+    const data = await getTicketsByStatus({ ...params, ids_status: 4 });
+    if (data) setFinalizados(data);
+  };
+
+  const getNãoSolucionados = async () => {
+    const data = await getTicketsByStatus({ ...params, ids_status: 3 });
+    if (data) setNãoSolucionados(data);
+  };
 
   return (
     <Stack flex="1" p="20px">
@@ -43,24 +70,23 @@ const TicketsPage: React.FC = () => {
       <Stack direction="row" spacing="20px" pt="10px">
         <Stack direction="row" flex="1">
           <Box flex="1">
-            <UserListComponent title="Em andamento" content={[0, 1, 2, 3, 4]} />
+            <UserListComponent title="Em andamento" content={emAndamento} />
           </Box>
+
           <Box flex="1">
-            <UserListComponent
-              title="Aberto recentemente"
-              content={[0, 1, 2, 3, 4]}
-            />
+            <UserListComponent title="Aberto recentemente" content={recente} />
           </Box>
         </Stack>
 
         <Stack direction="row" flex="1">
           <Box flex="1">
-            <UserListComponent title="Finalizados" content={[0, 1, 2, 3, 4]} />
+            <UserListComponent title="Finalizados" content={finalizados} />
           </Box>
+
           <Box flex="1">
             <UserListComponent
               title="Não solucionados"
-              content={[0, 1, 2, 3, 4]}
+              content={nãoSolucionados}
             />
           </Box>
         </Stack>

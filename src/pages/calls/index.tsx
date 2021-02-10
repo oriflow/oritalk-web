@@ -1,14 +1,42 @@
-import { Avatar, Box, Button, Stack, Text } from '@chakra-ui/react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Avatar, Box, Button, Spinner, Stack, Text } from '@chakra-ui/react';
 import { Form } from '@unform/web';
-import user from 'assets/png/user.png';
 import { InputComponent } from 'components/Forms/Input';
 import Table from 'components/Layout/Table';
+import { useTickets } from 'hooks/tickets';
 import { useRoute } from 'hooks/useRoute';
-import React from 'react';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import { FiCalendar, FiSearch } from 'react-icons/fi';
+import { useParams } from 'react-router-dom';
 
 const CallsPage: React.FC = () => {
+  const { getTicketsByStatus } = useTickets();
   const { push, title } = useRoute();
+  const { id } = useParams<any>();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const [params] = useState({
+    skip: 0,
+    take: 5,
+    id_site: 1,
+    status: true,
+    subject: true,
+    customer: true,
+    ids_status: 1,
+  });
+
+  useEffect(() => {
+    getAndamento();
+  }, []);
+
+  const getAndamento = async () => {
+    setLoading(true);
+    const data1 = await getTicketsByStatus({ ...params, ids_status: id });
+    if (data) setData(data1);
+    setLoading(false);
+  };
 
   return (
     <Stack flex="1" p="20px">
@@ -31,86 +59,63 @@ const CallsPage: React.FC = () => {
           </Stack>
         </Form>
       </Box>
-      <Table
-        columns={[
-          {
-            title: 'Nome',
-            accessor: 'name',
-            Cell: (props: any) => (
-              <Stack direction="row" alignItems="center">
-                <Avatar src={user} w="30px" h="30px" />
-                <Text pl="10px">{props.value}</Text>
-              </Stack>
-            ),
-          },
-          {
-            title: 'Ticket',
-            accessor: 'ticket',
-          },
-          {
-            title: 'Data de abertura',
-            accessor: 'start_date',
-          },
-          {
-            title: 'Assunto',
-            accessor: 'object',
-          },
-          {
-            title: 'Atendente responsável',
-            accessor: 'response',
-          },
-          {
-            title: 'Ultima atualização',
-            accessor: 'last_update',
-          },
-          {
-            title: '',
-            accessor: 'actions',
-            isNumeric: true,
-            Cell: (
-              <Button
-                onClick={() => push('/tickets/1/calls', title)}
-                variant="outline">
-                Ver atendimento
-              </Button>
-            ),
-          },
-        ]}
-        data={[
-          {
-            name: 'Maria Souza Martins',
-            ticket: '#92830799',
-            start_date: '16/10/2020',
-            object: 'Cancelamento',
-            response: 'Carolina Correia, Tomás Ribeiro, Matilde Oliveira',
-            last_update: '28/10/2020 - 15:33',
-          },
-          {
-            name: 'Eduardo Souza Martins',
-            ticket: '#92830799',
-            start_date: '16/10/2020',
-            object: 'Financeiro',
-            response: 'Carolina Correia, Tomás Ribeiro, Matilde Oliveira',
-            last_update: '28/10/2020 - 15:33',
-          },
-          {
-            name: 'Júlia Souza Martins',
-            ticket: '#92830799',
-            start_date: '16/10/2020',
-            object: 'Mudança de plano',
-            response: 'Carolina Correia, Tomás Ribeiro, Matilde Oliveira',
-            last_update: '28/10/2020 - 15:33',
-          },
-          {
-            name: 'Pedro Souza Martins',
-            ticket: '#92830799',
-            start_date: '16/10/2020',
-            object: 'Cancelamento',
-            response: 'Carolina Correia, Tomás Ribeiro, Matilde Oliveira',
-            last_update: '28/10/2020 - 15:33',
-          },
-        ]}
-      />
+      {loading && data.length === 0 && (
+        <Stack p="30px" align="center">
+          <Spinner color="theme.primary" />
+        </Stack>
+      )}
+      {data.length > 0 && (
+        <Table
+          columns={[
+            {
+              title: 'Nome',
+              accessor: 'customer.name',
+              Cell: (props: any) => (
+                <Stack direction="row" alignItems="center">
+                  <Avatar w="30px" h="30px" />
+                  <Text pl="10px">{props.value}</Text>
+                </Stack>
+              ),
+            },
+            {
+              title: 'Ticket',
+              accessor: 'id_ticket',
+              Cell: (props: any) => `#${props.value}`,
+            },
+            {
+              title: 'Data de abertura',
+              accessor: 'created_at',
+              Cell: (props: any) => moment(props.value).format('DD/MM/YYYY'),
+            },
+            {
+              title: 'Assunto',
+              accessor: 'subject.id_subject',
+            },
+            {
+              title: 'Atendente responsável',
+              accessor: 'response',
+            },
+            {
+              title: 'Ultima atualização',
+              accessor: 'updated_at',
+              Cell: (props: any) => moment(props.value).format('DD/MM/YYYY'),
+            },
+            {
+              title: '',
+              accessor: 'actions',
+              isNumeric: true,
+              Cell: (
+                <Button
+                  onClick={() => push('/tickets/1/calls', title)}
+                  variant="outline">
+                  Ver atendimento
+                </Button>
+              ),
+            },
+          ]}
+          data={data}
+        />
+      )}
     </Stack>
   );
 };
