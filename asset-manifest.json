@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/oritalk-web/static/js/main.1d57c639.chunk.js",
-    "main.js.map": "/oritalk-web/static/js/main.1d57c639.chunk.js.map",
+    "main.js": "/oritalk-web/static/js/main.410a59ac.chunk.js",
+    "main.js.map": "/oritalk-web/static/js/main.410a59ac.chunk.js.map",
     "runtime-main.js": "/oritalk-web/static/js/runtime-main.d6d9db68.js",
     "runtime-main.js.map": "/oritalk-web/static/js/runtime-main.d6d9db68.js.map",
-    "static/js/2.ccdf118b.chunk.js": "/oritalk-web/static/js/2.ccdf118b.chunk.js",
-    "static/js/2.ccdf118b.chunk.js.map": "/oritalk-web/static/js/2.ccdf118b.chunk.js.map",
+    "static/js/2.28890fd3.chunk.js": "/oritalk-web/static/js/2.28890fd3.chunk.js",
+    "static/js/2.28890fd3.chunk.js.map": "/oritalk-web/static/js/2.28890fd3.chunk.js.map",
     "index.html": "/oritalk-web/index.html",
-    "static/js/2.ccdf118b.chunk.js.LICENSE.txt": "/oritalk-web/static/js/2.ccdf118b.chunk.js.LICENSE.txt",
+    "static/js/2.28890fd3.chunk.js.LICENSE.txt": "/oritalk-web/static/js/2.28890fd3.chunk.js.LICENSE.txt",
     "static/media/01.4fb81f4f.svg": "/oritalk-web/static/media/01.4fb81f4f.svg",
     "static/media/02.285f371b.svg": "/oritalk-web/static/media/02.285f371b.svg",
     "static/media/account.78355805.svg": "/oritalk-web/static/media/account.78355805.svg",
@@ -30,7 +30,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d6d9db68.js",
-    "static/js/2.ccdf118b.chunk.js",
-    "static/js/main.1d57c639.chunk.js"
+    "static/js/2.28890fd3.chunk.js",
+    "static/js/main.410a59ac.chunk.js"
   ]
 }
