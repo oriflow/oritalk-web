@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/oritalk-web/static/js/main.a74aa5cd.chunk.js",
-    "main.js.map": "/oritalk-web/static/js/main.a74aa5cd.chunk.js.map",
+    "main.js": "/oritalk-web/static/js/main.2f4cdb05.chunk.js",
+    "main.js.map": "/oritalk-web/static/js/main.2f4cdb05.chunk.js.map",
     "runtime-main.js": "/oritalk-web/static/js/runtime-main.6093182b.js",
     "runtime-main.js.map": "/oritalk-web/static/js/runtime-main.6093182b.js.map",
     "static/js/2.cb78a06a.chunk.js": "/oritalk-web/static/js/2.cb78a06a.chunk.js",
@@ -31,6 +31,6 @@
   "entrypoints": [
     "static/js/runtime-main.6093182b.js",
     "static/js/2.cb78a06a.chunk.js",
-    "static/js/main.a74aa5cd.chunk.js"
+    "static/js/main.2f4cdb05.chunk.js"
   ]
 }
