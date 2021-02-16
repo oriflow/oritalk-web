@@ -53,7 +53,7 @@ const UserListComponent = ({
           </Box>
         )}
 
-        {content.map((item: any, index: number) => (
+        {content?.map((item: any, index: number) => (
           <Stack
             key={String(index)}
             direction="row"
@@ -62,10 +62,10 @@ const UserListComponent = ({
             alignItems="center">
             <Avatar w="28px" h="28px" />
             <Text flex="1" fontSize="13px">
-              {item.customer.name}
+              {item?.customer?.name}
             </Text>
             <Text fontSize="12px">
-              {moment(item.created_at).format('DD/MM/YYYY')}
+              {moment(item?.created_at).format('DD/MM/YYYY')}
             </Text>
           </Stack>
         ))}
