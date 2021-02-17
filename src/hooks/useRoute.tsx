@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 interface RoutePropsContext {
-  push: (path: string, title?: string) => Promise<void>;
+  push: (path: string, title?: string, params?: any) => Promise<void>;
   initial_path: string;
   title: string;
 }

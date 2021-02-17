@@ -18,7 +18,7 @@ export const Routes = () => {
         <Switch>
           <RouteProvider>
             {!auth?.isAuth ? (
-              <Route path="/" exact component={LoginPage} />
+              <Route path="/oritalk-web" exact component={LoginPage} />
             ) : (
               <MenuBar>
                 {routes.map(route => (

@@ -102,11 +102,16 @@ const CallsPage: React.FC = () => {
             },
             {
               title: '',
-              accessor: 'actions',
+              id: 'actions',
+              accessor: (d: any) => String(d.id_ticket),
               isNumeric: true,
-              Cell: (
+              Cell: (props: any) => (
                 <Button
-                  onClick={() => push('/tickets/1/calls', title)}
+                  onClick={() =>
+                    push(`/tickets/${id}/calls`, title, {
+                      active: props.cell.value,
+                    })
+                  }
                   variant="outline">
                   Ver atendimento
                 </Button>
