@@ -23,6 +23,10 @@ export const Input = {
           boxShadow: 'none',
           borderColor: 'theme.primary',
         },
+        _disabled: {
+          opacity: 0.6,
+          cursor: 'default',
+        },
       },
       addon: {
         boxShadow: 'none',
@@ -42,8 +46,8 @@ export const Input = {
           boxShadow: `0px 1px 0px 0px #ddd`,
         },
         _disabled: {
-          opacity: 0.4,
-          cursor: 'not-allowed',
+          opacity: 0.6,
+          cursor: 'default',
         },
         _hover: {
           boxShadow: `0px 1px 0px 0px #ddd`,

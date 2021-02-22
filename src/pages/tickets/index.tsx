@@ -11,6 +11,12 @@ const TicketsPage: React.FC = () => {
   const [recente, setRecente] = useState([]);
   const [finalizados, setFinalizados] = useState([]);
   const [nãoSolucionados, setNãoSolucionados] = useState([]);
+  const [loading, setLoading] = useState({
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+  });
 
   const [params] = useState({
     skip: 0,
@@ -30,23 +36,31 @@ const TicketsPage: React.FC = () => {
   }, [params]);
 
   const getAndamento = async () => {
+    setLoading(m => ({ ...m, 0: true }));
     const data = await getTicketsByStatus({ ...params, ids_status: 2 });
     if (data) setEmAndamento(data);
+    setLoading(m => ({ ...m, 0: false }));
   };
 
   const getRecente = async () => {
+    setLoading(m => ({ ...m, 1: true }));
     const data = await getTicketsByStatus({ ...params, ids_status: 1 });
     if (data) setRecente(data);
+    setLoading(m => ({ ...m, 1: false }));
   };
 
   const getFinalizados = async () => {
+    setLoading(m => ({ ...m, 2: true }));
     const data = await getTicketsByStatus({ ...params, ids_status: 4 });
     if (data) setFinalizados(data);
+    setLoading(m => ({ ...m, 2: false }));
   };
 
   const getNãoSolucionados = async () => {
+    setLoading(m => ({ ...m, 3: true }));
     const data = await getTicketsByStatus({ ...params, ids_status: 3 });
     if (data) setNãoSolucionados(data);
+    setLoading(m => ({ ...m, 3: false }));
   };
 
   return (
@@ -70,23 +84,36 @@ const TicketsPage: React.FC = () => {
       <Stack direction="row" spacing="20px" pt="10px">
         <Stack direction="row" flex="1">
           <Box flex="1">
-            <UserListComponent title="Em andamento" content={emAndamento} />
+            <UserListComponent
+              title="Em andamento"
+              content={emAndamento}
+              loading={loading[0]}
+            />
           </Box>
 
           <Box flex="1">
-            <UserListComponent title="Aberto recentemente" content={recente} />
+            <UserListComponent
+              title="Aberto recentemente"
+              content={recente}
+              loading={loading[1]}
+            />
           </Box>
         </Stack>
 
         <Stack direction="row" flex="1">
           <Box flex="1">
-            <UserListComponent title="Finalizados" content={finalizados} />
+            <UserListComponent
+              title="Finalizados"
+              content={finalizados}
+              loading={loading[3]}
+            />
           </Box>
 
           <Box flex="1">
             <UserListComponent
               title="Não solucionados"
               content={nãoSolucionados}
+              loading={loading[3]}
             />
           </Box>
         </Stack>

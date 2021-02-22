@@ -10,21 +10,25 @@ import React from 'react';
 
 import { chat } from './fake';
 
-const ChatPage: React.FC = () => {
+interface ClientProp {
+  client: any;
+}
+
+const ChatPage: React.FC<ClientProp> = ({ client }) => {
   return (
-    <Stack direction="row" flex="1" bg="white" h="100%">
+    <Stack direction={['column', 'row']} flex="1" bg="white" h="100%">
       <Stack overflow="auto" p="30px" h="83vh" w="380px">
         <Text color="text.primary" fontSize="18px" mb="48px">
-          Ticket #92830799
+          Ticket #{client?.id_ticket}
         </Text>
 
         <Stack direction="row" spacing="20px" mb="40px">
-          <Avatar w="56px" h="56px" src={user} />
+          <Avatar w="56px" h="56px" />
           <Box>
             <Text fontSize="18px" fontWeight="700" mb="4px">
-              Eduardo Souza Martins
+              {client?.customer?.name}
             </Text>
-            <Text fontSize="12px">CPF: 233.434.454-32</Text>
+            <Text fontSize="12px">CPF: {client?.customer?.cgc}</Text>
             <Button mt="16px" size="sm" variant="outline">
               Ver perfil
             </Button>
@@ -34,7 +38,12 @@ const ChatPage: React.FC = () => {
         <Form onSubmit={() => {}}>
           <Box mb="16px" fontSize="14px" textColor="text.secondary">
             <Text>Nome:</Text>
-            <InputComponent placeholder="Nome" name="name" />
+            <InputComponent
+              placeholder="Nome"
+              disabled
+              value={client?.customer?.name}
+              name="name"
+            />
           </Box>
           <Box mb="16px" fontSize="14px" textColor="text.secondary">
             <Text>Data de nascimento:</Text>
@@ -42,11 +51,21 @@ const ChatPage: React.FC = () => {
           </Box>
           <Box mb="16px" fontSize="14px" textColor="text.secondary">
             <Text>Email:</Text>
-            <InputComponent placeholder="Email" name="name" />
+            <InputComponent
+              placeholder="Email"
+              name="name"
+              disabled
+              value={client?.customer?.email}
+            />
           </Box>
           <Box mb="16px" fontSize="14px" textColor="text.secondary">
             <Text>Telefone:</Text>
-            <InputComponent placeholder="Telefone" name="name" />
+            <InputComponent
+              placeholder="Telefone"
+              name="name"
+              disabled
+              value={client?.customer?.phone}
+            />
           </Box>
           <Box mb="16px" fontSize="14px" textColor="text.secondary">
             <Text>Celular:</Text>
@@ -66,13 +85,13 @@ const ChatPage: React.FC = () => {
           borderColor="border.divider"
           overflow="auto">
           <Box p="20px 10px">
-            {chat.map(item => (
+            {chat.map((item, index) => (
               <Stack
+                key={String(index)}
                 mb="20px"
                 direction="row"
                 alignItems="flex-end"
-                justifyContent={item.id === 2 ? 'flex-end' : 'flex-start'}
-                key={item.message}>
+                justifyContent={item.id === 2 ? 'flex-end' : 'flex-start'}>
                 {item.id !== 2 && <Avatar w="32px" h="32px" src={user} />}
                 <Box
                   borderRadius="8px"

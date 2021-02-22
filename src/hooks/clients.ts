@@ -10,7 +10,7 @@ export const useClients = () => {
 
   const getClients = async () => {
     try {
-      const res = await prepareRequest(api.get, '/clients');
+      const res = await prepareRequest(api.get, '/customer/list');
       if (res.status !== 200) throw res;
       setClients(res.data);
     } catch (error) {
@@ -20,7 +20,7 @@ export const useClients = () => {
 
   const getClient = async (id: number) => {
     try {
-      const res = await prepareRequest(api.get, `/clients/${id}`);
+      const res = await prepareRequest(api.get, `/customer/${id}`);
       if (res.status !== 200) throw res;
       setClient(res.data);
     } catch (error) {
