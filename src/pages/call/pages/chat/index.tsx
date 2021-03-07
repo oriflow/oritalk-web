@@ -1,4 +1,12 @@
-import { Avatar, Box, Button, Icon, Stack, Text } from '@chakra-ui/react';
+import {
+  Avatar,
+  Box,
+  Button,
+  Icon,
+  Stack,
+  Text,
+  Textarea,
+} from '@chakra-ui/react';
 import { Form } from '@unform/web';
 import { ReactComponent as EmojiIcon } from 'assets/icons/chat/emoji.svg';
 import { ReactComponent as FileIcon } from 'assets/icons/chat/file.svg';
@@ -16,7 +24,7 @@ interface ClientProp {
 
 const ChatPage: React.FC<ClientProp> = ({ client }) => {
   return (
-    <Stack direction={['column', 'row']} flex="1" bg="white" h="100%">
+    <Stack direction="row" flex="1" bg="white" h="100%">
       <Stack overflow="auto" p="30px" h="83vh" w="380px">
         <Text color="text.primary" fontSize="18px" mb="48px">
           Ticket #{client?.id_ticket}
@@ -118,17 +126,21 @@ const ChatPage: React.FC<ClientProp> = ({ client }) => {
           </Box>
         </Stack>
         <Stack
-          mb="60px"
+          mb="80px"
           border="1px solid"
           borderColor="border.divider"
-          p="16px"
-          w="full"
-          h="176px">
+          w="full">
           <Stack flex="1">
-            <Text color="text.secondary">Digite sua mensagem...</Text>
+            <Textarea
+              borderRadius="0"
+              outline="0"
+              focusBorderColor="theme.primary"
+              placeholder="Digite sua mensagem..."
+              p="16px"
+            />
           </Stack>
 
-          <Stack direction="row" alignItems="flex-end">
+          <Stack direction="row" alignItems="flex-end" p="0px 10px" pb="8px">
             <Icon viewBox="0 0 24 24" boxSize="20px">
               <TextIcon />
             </Icon>

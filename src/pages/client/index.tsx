@@ -1,5 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Stack } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import { useClients } from 'hooks/clients';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import TopMenu from './components/topmenu';
 import ClientContracts from './pages/contracts';
@@ -8,8 +11,18 @@ import ClientTickets from './pages/tickets';
 
 type Active = 'profile' | 'tickets' | 'contracts';
 
+interface Params {
+  id?: string;
+}
+
 const UserDataPage: React.FC = () => {
   const [active, setActive] = useState<Active>('profile');
+  const { getClient, client, loading } = useClients();
+  const { id } = useParams<Params>();
+
+  useEffect(() => {
+    getClient(Number(id));
+  }, []);
 
   const Pages = {
     profile: ClientProfile,
@@ -20,10 +33,7 @@ const UserDataPage: React.FC = () => {
   return (
     <Stack flex="1">
       <TopMenu active={active} onChange={a => setActive(a)} />
-
-      <Stack p="20px">
-        <Pages />
-      </Stack>
+      <Stack p="20px">{!loading && !!client && <Pages />}</Stack>
     </Stack>
   );
 };
