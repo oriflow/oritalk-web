@@ -15,11 +15,13 @@ interface UserListProperties {
   title?: string;
   content: any;
   as?: 'finance' | 'tickets';
+  loading?: boolean;
 }
 
 const UserListComponent = ({
   title,
   content,
+  loading = false,
   as,
 }: UserListProperties): JSX.Element => {
   const { push } = useRoute();
@@ -42,7 +44,7 @@ const UserListComponent = ({
       </Stack>
 
       <Box mt="20px">
-        {content.length === 0 && (
+        {!!loading && (
           <Box>
             {[1, 2, 3, 4, 5].map(() => (
               <Stack direction="row" mb="16px">
@@ -51,6 +53,12 @@ const UserListComponent = ({
               </Stack>
             ))}
           </Box>
+        )}
+
+        {!loading && content.length === 0 && (
+          <Text p="10px" color="grey">
+            Nenhum cliente encontrado
+          </Text>
         )}
 
         {content?.map((item: any, index: number) => (

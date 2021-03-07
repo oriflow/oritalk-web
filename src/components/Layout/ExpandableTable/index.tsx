@@ -47,10 +47,11 @@ const ExpandableTable: React.FC<TableProps> = ({ columns, data }) => {
   return (
     <ChakraTable {...getTableProps()} variant="unstyled">
       <Thead borderBottom="1px solid #2b2b2b">
-        {headerGroups.map(headerGroup => (
-          <Tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
+        {headerGroups.map((headerGroup, idx) => (
+          <Tr {...headerGroup.getHeaderGroupProps()} key={String(idx)}>
+            {headerGroup.headers.map((column, index) => (
               <Th
+                key={String(index)}
                 textTransform="capitalize"
                 fontWeight="500"
                 fontSize="14px"

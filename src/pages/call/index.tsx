@@ -18,6 +18,7 @@ const CallPage: React.FC = () => {
   const [data, setData] = useState([]);
   const { id } = useParams<any>();
   const [userSelected, setUserSelected] = useState(0);
+  const [client, setClient] = useState();
 
   const [params] = useState({
     skip: 0,
@@ -38,8 +39,18 @@ const CallPage: React.FC = () => {
     setLoading(true);
     const data1 = await getTicketsByStatus({ ...params, ids_status: id });
     if (data) setData(data1);
+
     setLoading(false);
   };
+
+  useEffect(() => {
+    if (userSelected) {
+      const user = data?.find(
+        (item: any) => Number(item.id_ticket) === Number(userSelected),
+      );
+      setClient(user);
+    }
+  }, [data, userSelected]);
 
   const Pages = {
     chat: ChatPage,
@@ -63,11 +74,11 @@ const CallPage: React.FC = () => {
           )}
 
           <Stack>
-            {data.map((item: any) => (
+            {data.map((item: any, index) => (
               <Stack
+                key={String(index)}
                 onClick={() => setUserSelected(item?.id_ticket)}
                 p="10px 8px"
-                key={item}
                 cursor="pointer"
                 direction="row"
                 borderBottom="1px solid #eee"
@@ -92,7 +103,7 @@ const CallPage: React.FC = () => {
         </Stack>
         <Stack spacing="0" flex="1">
           <TopMenu onChange={a => setActive(a)} active={active} />
-          <Pages />
+          <Pages client={client} />
         </Stack>
       </Stack>
     </Stack>
